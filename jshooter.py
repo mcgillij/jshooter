@@ -1,4 +1,4 @@
-#!c:/Python26/python.exe -u
+""" Main file for my first python project, a top down shmup """
 try:
     import pygame, random, sys
     import pygame.font
