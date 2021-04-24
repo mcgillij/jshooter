@@ -1,17 +1,19 @@
 try:
-    import pygame, random, sys
+    import sys
+    import pygame
     import pygame.font
-    from pygame.locals import *
-    import os
     import loader as loader
-except ImportError, err:
-    print "couldn't load module. %s" % (err)
+
+except ImportError as err:
+    print("couldn't load module. %s" % (err))
     sys.exit(2)
-    
+
+
 class Proxy(pygame.sprite.Sprite):
     """Proxy class, will have the image, along with coords and abilities"""
+
     def __init__(self):
-        self.image, self.rect = loader.load_png('proxy.png')
+        self.image, self.rect = loader.load_png("proxy.png")
         screen = pygame.display.get_surface()
         self.isExploding = False
         self.area = screen.get_rect()
@@ -20,10 +22,9 @@ class Proxy(pygame.sprite.Sprite):
         self.moveRight = False
         self.moveUp = False
         self.moveDown = False
-    
-    def update(self):
-       newpos = self.rect.move(self.movepos)
-       if self.area.contains(newpos):
-           self.rect = newpos
-       pygame.event.pump()
 
+    def update(self):
+        newpos = self.rect.move(self.movepos)
+        if self.area.contains(newpos):
+            self.rect = newpos
+        pygame.event.pump()

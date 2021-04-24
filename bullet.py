@@ -1,15 +1,16 @@
 try:
-    import pygame, random, sys
+    import sys
+    import pygame
     import pygame.font
-    from pygame.locals import *
-    import os
-  
-except ImportError, err:
-    print "couldn't load module. %s" % (err)
+
+except ImportError as err:
+    print("couldn't load module. %s" % (err))
     sys.exit(2)
+
 
 class Bullet(pygame.sprite.Sprite):
     """Bullet class, will have the image, along with coords and abilities"""
+
     def __init__(self, image, rect, speed, surface, startx, starty, owner):
         self.image = image
         self.rect = rect
@@ -23,7 +24,7 @@ class Bullet(pygame.sprite.Sprite):
         self.owner = owner
 
     def update(self):
-       newpos = self.rect.move(self.movepos)
-       if self.area.contains(newpos):
-           self.rect = newpos
-       pygame.event.pump()
+        newpos = self.rect.move(self.movepos)
+        if self.area.contains(newpos):
+            self.rect = newpos
+        pygame.event.pump()
