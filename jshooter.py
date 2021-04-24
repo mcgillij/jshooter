@@ -448,7 +448,7 @@ while True:
             if p.rect.top > WINDOWHEIGHT:
                 powerups.remove(p)
 
-        if proxy.isExploding == True:
+        if proxy.isExploding:
             if proxyExplosionCounter == 0:
                 proxyExplosionCounter += 1
                 newProxyExplosion = proxyexplosion.ProxyExplosion()
@@ -457,7 +457,7 @@ while True:
                 proxyExplosions.append(newProxyExplosion)
 
         # bullets from player
-        if player.isShooting == True:
+        if player.isShooting:
             bulletAddCounter += 1
             if bulletAddCounter == SHOTTHROTTLE:
                 bulletAddCounter = 0
